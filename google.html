@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: #555;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .logo {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            color: #4285f4;
+            font-weight: bold;
+        }
+
+        .search-container {
+            max-width: 580px;
+            width: 100%;
+        }
+
+        .search-box {
+            width: 100%;
+            display: flex;
+            padding: 0.5rem 1rem;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px;
+            margin-bottom: 2rem;
+        }
+
+        .search-box:hover {
+            box-shadow: 0 1px 6px rgba(32,33,36,.28);
+        }
+
+        .search-input {
+            flex-grow: 1;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            padding: 0.5rem;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .search-button {
+            background-color: #f8f9fa;
+            border: 1px solid #f8f9fa;
+            border-radius: 4px;
+            color: #3c4043;
+            font-size: 14px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            box-shadow: 0 1px 1px rgba(0,0,0,.1);
+            border: 1px solid #dadce0;
+        }
+
+        footer {
+            background-color: #f2f2f2;
+            padding: 1rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: #70757a;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Email</a>
+        <a href="#">Imagens</a>
+    </nav>
+
+    <main>
+        <div class="logo">Busca</div>
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Faça sua busca">
+            </div>
+            <div class="buttons">
+                <button class="search-button" onclick="realizarBusca()">Pesquisar</button>
+                <button class="search-button" onclick="sorte()">Estou com sorte</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>Brasil</div>
+            <div>
+                <span>Privacidade</span>
+                <span>Termos</span>
+                <span>Configurações</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function realizarBusca() {
+            const termo = document.querySelector('.search-input').value;
+            if (termo) {
+                alert(`Você pesquisou por: ${termo}`);     
+        }}
+
+        function sorte() {
+            alert('Recurso "Estou com sorte" clicado!');
+        
+        }
+
+       
+        document.querySelector('.search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                realizarBusca();
+            }
+        });
+    </script>
+</body>
+</html>
